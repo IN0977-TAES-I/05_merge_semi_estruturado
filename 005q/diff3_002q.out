@@ -1,0 +1,15 @@
+public class Matematica {
+<<<<<<< experiment/002q/left.java
+    public int somar(int a, int b) {
+        return a + b;
+    }
+||||||| experiment/002q/base.java
+=======
+    public int subtrair(int a, int b) {
+        return a - b;
+    }
+>>>>>>> experiment/002q/right.java
+    public int multiplicar(int a, int b) {
+        return a * b;
+    }
+}

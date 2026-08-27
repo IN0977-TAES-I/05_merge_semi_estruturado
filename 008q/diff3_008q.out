@@ -1,0 +1,11 @@
+class Matematica:
+<<<<<<< experiment/008q/left.py
+    def somar(self, a, b):
+        return a + b
+||||||| experiment/008q/base.py
+=======
+    def subtrair(self, a, b):
+        return a - b
+>>>>>>> experiment/008q/right.py
+    def multiplicar(self, a, b):
+        return a * b
