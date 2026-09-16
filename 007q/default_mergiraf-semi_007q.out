@@ -1,0 +1,15 @@
+class Teste {
+<<<<<<< experiment/007q/left.java
+  int subtracao(){
+    return 20-10;
+  }
+||||||| experiment/007q/base.java
+=======
+  int subtracao(){
+    return 30-20;
+  }
+>>>>>>> experiment/007q/right.java
+  int soma(){
+  return 10+10;
+}
+}

@@ -1,0 +1,155 @@
+INFO [TIME MAIN] Starting line_merge_and_structured_resolution...
+INFO [TIME] Phase 1 (line-based merge) took: 3.119202ms
+INFO [STRUCTURED] called with semistructured = Some(Diff3)
+DEBUG parsing all three files took 356.23µs
+DEBUG matching base to left
+DEBUG matching base to right
+DEBUG top-down phase yielded 0 matches
+DEBUG top-down phase yielded 0 matches
+DEBUG matching took 269.947µs
+DEBUG matching took 374.043µs
+DEBUG matching left to right
+DEBUG top-down phase yielded 0 matches
+DEBUG matching took 88.126µs
+DEBUG matching all three pairs took 729.671µs
+DEBUG constructing the classmapping took 28.233µs
+DEBUG [CM DEBUG] Start Concurrent Additions Unification
+DEBUG [CM DEBUG] Left node identifier:6…11@Left matched with Base
+DEBUG [CM DEBUG] Left node method_declaration:52…90@Left has NO equivalent in Base
+DEBUG [CM DEBUG] Left node class_declaration:0…92@Left matched with Base
+DEBUG [CM DEBUG] Left node {:12…13@Left matched with Base
+DEBUG [CM DEBUG] Left node }:91…92@Left matched with Base
+DEBUG [CM DEBUG] Left node program:0…93@Left matched with Base
+DEBUG [CM DEBUG] Left node class:0…5@Left matched with Base
+DEBUG [CM DEBUG] Left node method_declaration:16…49@Left matched with Base
+DEBUG [CM DEBUG] Left node class_body:12…92@Left matched with Base
+DEBUG [CM DEBUG] Right node program:0…92@Right matched with Base
+DEBUG [CM DEBUG] Right node class:0…5@Right matched with Base
+DEBUG [CM DEBUG] Right node method_declaration:16…54@Right has NO equivalent in Base
+DEBUG [CM DEBUG] Right node class_body:12…92@Right matched with Base
+DEBUG [CM DEBUG] Right node identifier:6…11@Right matched with Base
+DEBUG [CM DEBUG] Right node method_declaration:57…90@Right matched with Base
+DEBUG [CM DEBUG] Right node class_declaration:0…92@Right matched with Base
+DEBUG [CM DEBUG] Right node {:12…13@Right matched with Base
+DEBUG [CM DEBUG] Right node }:91…92@Right matched with Base
+DEBUG [CM DEBUG] Unmatched nodes in Left: method_declaration:52…90@Left
+DEBUG [CM DEBUG] Unmatched nodes in Right: method_declaration:16…54@Right
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=integral_type field_name=Some("type") text="int"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=identifier field_name=Some("name") text="subtracao"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=formal_parameters field_name=Some("parameters") text="()"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=block field_name=Some("body") text="{\n    return 30-20;\n  }"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=integral_type field_name=Some("type") text="int"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=identifier field_name=Some("name") text="subtracao"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=formal_parameters field_name=Some("parameters") text="()"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=block field_name=Some("body") text="{\n    return 30-20;\n  }"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=integral_type field_name=Some("type") text="int"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=identifier field_name=Some("name") text="subtracao"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=formal_parameters field_name=Some("parameters") text="()"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=block field_name=Some("body") text="{\n    return 30-20;\n  }"
+DEBUG [AST DEBUG] Extracted Signature (with descendant_for_byte_range): Signature [[subtracao], [], []]
+DEBUG [CM DEBUG] Right node method_declaration:16…54@Right has signature Signature [[subtracao], [], []]
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=integral_type field_name=Some("type") text="int"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=identifier field_name=Some("name") text="subtracao"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=formal_parameters field_name=Some("parameters") text="()"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=block field_name=Some("body") text="{\n    return 20-10;\n  }"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=integral_type field_name=Some("type") text="int"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=identifier field_name=Some("name") text="subtracao"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=formal_parameters field_name=Some("parameters") text="()"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=block field_name=Some("body") text="{\n    return 20-10;\n  }"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=integral_type field_name=Some("type") text="int"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=identifier field_name=Some("name") text="subtracao"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=formal_parameters field_name=Some("parameters") text="()"
+DEBUG [SIGNATURE DEBUG] parent_kind=method_declaration -> child_kind=block field_name=Some("body") text="{\n    return 20-10;\n  }"
+DEBUG [AST DEBUG] Extracted Signature (with descendant_for_byte_range): Signature [[subtracao], [], []]
+DEBUG [CM DEBUG] Processing Left Node with Signature: Signature [[subtracao], [], []]
+DEBUG [CM DEBUG] Match Found in Right!
+DEBUG [CM DEBUG] Unifying method_declaration:52…90@Left and method_declaration:16…54@Right
+INFO [TIME CM] Unify Concurrent Additions time: 828.537µs
+DEBUG [CM DEBUG] End Concurrent Additions Unification
+DEBUG generating PCS triples
+DEBUG generating PCS triples took 128.842µs
+DEBUG number of triples: 10
+DEBUG number of conflicting triples: 2
+DEBUG eliminating (class_body:12…51@Base, method_declaration:16…49@Base, }:50…51@Base, Base) by (class_body:12…51@Base, method_declaration:52…90@Left, }:50…51@Base, Left)
+DEBUG number of conflicting triples: 2
+DEBUG eliminating (class_body:12…51@Base, {:12…13@Base, method_declaration:16…49@Base, Base) by (class_body:12…51@Base, {:12…13@Base, method_declaration:52…90@Left, Right)
+DEBUG cleaning up PCS triples took 145.493µs
+DEBUG ⊥ build_subtree_from_changeset
+DEBUG  program:0…51@Base build_subtree_from_changeset
+DEBUG   class_declaration:0…51@Base build_subtree_from_changeset
+DEBUG    class:0…5@Base build_subtree_from_changeset
+DEBUG    identifier:6…11@Base build_subtree_from_changeset
+DEBUG    class_body:12…51@Base build_subtree_from_changeset
+DEBUG     {:12…13@Base build_subtree_from_changeset
+DEBUG    method_declaration:52…90@Left build_conflict
+DEBUG    method_declaration:52…90@Left extract_conflict_side
+DEBUG    method_declaration:52…90@Left extract_conflict_side
+DEBUG    method_declaration:52…90@Left extract_conflict_side
+DEBUG    class_body:12…51@Base commutative_or_line_based_local_fallback
+DEBUG    commutatively_merge_lists
+DEBUG    base_leaders: method_declaration:16…49@Base
+DEBUG    left_leaders: method_declaration:52…90@Left, method_declaration:16…49@Base
+DEBUG    right_leaders: method_declaration:52…90@Left, method_declaration:16…49@Base
+DEBUG    right_removed: 
+DEBUG    merged leaders: method_declaration:52…90@Left, method_declaration:16…49@Base
+DEBUG    with_separators (final merged children):
+DEBUG     {:12…13@Base build_subtree_from_changeset
+DEBUG     }:50…51@Base build_subtree_from_changeset
+INFO ===========================================================
+INFO [PROFILING SEMISTRUCTURED]
+INFO DIFFY CALLS: 0
+INFO TOTAL TIME BUILDING MERGED TREE: 477.868µs
+INFO TIME SPENT ON DIFFY: 0ns
+INFO DIFFY CALLS ARE 0.00% OF TOTAL TIME
+INFO ===========================================================
+DEBUG Mixed(program:0…51@Base
+  Mixed(class_declaration:0…51@Base
+    Exact(class:0…5@Base/BLR/)
+    Exact(identifier:6…11@Base/BLR/)
+    Mixed(class_body:12…51@Base
+      Exact({:12…13@Base/BLR/)
+      Conflict()
+      CommutativeChildSeparator(\n)
+      TextuallyMerged(method_declaration:16…49@Base, conflict: false)
+      Exact(}:50…51@Base/BLR/)
+    )
+  )
+)
+DEBUG deleted and modified: 
+DEBUG really deleted children: 
+DEBUG parents to recompute: 
+DEBUG constructing the merged tree took 668.236µs
+DEBUG post-processing the merged tree for signature conflicts took 17.633µs
+DEBUG Mixed(program:0…51@Base
+  Mixed(class_declaration:0…51@Base
+    Exact(class:0…5@Base/BLR/)
+    Exact(identifier:6…11@Base/BLR/)
+    Mixed(class_body:12…51@Base
+      Exact({:12…13@Base/BLR/)
+      Conflict()
+      CommutativeChildSeparator(\n)
+      TextuallyMerged(method_declaration:16…49@Base, conflict: false)
+      Exact(}:50…51@Base/BLR/)
+    )
+  )
+)
+INFO [TIME] Phase 3 (structure on entire file) took: 3.13955ms
+DEBUG ~~~ Merge statistics ~~~
+DEBUG line_based: 0 conflict(s), 0 mass, has_additional_issues: true
+DEBUG fully_structured: 1 conflict(s), 76 mass, has_additional_issues: false
+INFO [TIME MAIN] Total time merge module: 6.831047ms
+class Teste {
+<<<<<<< experiment/007q/left.java
+  int subtracao(){
+    return 20-10;
+  }
+||||||| experiment/007q/base.java
+=======
+  int subtracao(){
+    return 30-20;
+  }
+>>>>>>> experiment/007q/right.java
+  int soma(){
+    return 10+10;
+  }
+}

@@ -1,0 +1,15 @@
+class Teste {
+  void conta(){
+<<<<<<< experiment/006q/left.java
+    for(int i = 1; i < 10; i++){
+      System.out.println(i);
+||||||| experiment/006q/base.java
+    for(int i = 0; i < 10; i++){
+      System.out.println(i);
+=======
+    for(int i = 0; i < 10; i++){
+      System.out.println(o);
+>>>>>>> experiment/006q/right.java
+    }
+  }
+}

@@ -1,0 +1,300 @@
+  --> src/class_mapping.rs:83:12
+   |
+53 | impl<'a> Leader<'a> {
+   | ------------------- method in this implementation
+...
+83 |     pub fn rev_node(&self) -> &RevNode<'a> {
+   |            ^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> src/lang_profile.rs:317:31
+    |
+317 |     pub(crate) fn parent_type(&self) -> &ParentType {
+    |                               ^^^^^     ^^^^^^^^^^^
+    |                               |         ||
+    |                               |         |the same lifetime is hidden here
+    |                               |         the same lifetime is elided here
+    |                               the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+317 |     pub(crate) fn parent_type(&self) -> &ParentType<'_> {
+    |                                                    ++++
+
+warning: `mergiraf` (lib) generated 2 warnings (run `cargo fix --lib -p mergiraf` to apply 1 suggestion)
+warning: this lint expectation is unfulfilled
+   --> src/main.rs:195:22
+    |
+195 |             #[expect(unstable_name_collisions)]
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = note: `#[warn(unfulfilled_lint_expectations)]` on by default
+
+warning: this lint expectation is unfulfilled
+   --> src/main.rs:197:22
+    |
+197 |             #[expect(unstable_name_collisions)]
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: this lint expectation is unfulfilled
+   --> src/main.rs:199:22
+    |
+199 |             #[expect(unstable_name_collisions)]
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: this lint expectation is unfulfilled
+   --> src/main.rs:203:22
+    |
+203 |             #[expect(unstable_name_collisions)]
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: this lint expectation is unfulfilled
+   --> src/main.rs:205:22
+    |
+205 |             #[expect(unstable_name_collisions)]
+    |                      ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: `mergiraf` (bin "mergiraf") generated 5 warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.09s
+     Running `target/debug/mergiraf merge --semistructured=diff3 experiment/008q/base.py experiment/008q/left.py experiment/008q/right.py --verbose`
+INFO [TIME MAIN] Starting line_merge_and_structured_resolution...
+INFO [TIME] Phase 1 (line-based merge) took: 27.3612ms
+DEBUG re-constructing revisions from parsed merge took 13.565µs
+INFO [STRUCTURED] called with semistructured = Some(Diff3)
+DEBUG parsing all three files took 22.413373ms
+DEBUG matching base to right
+DEBUG matching base to left
+DEBUG top-down phase yielded 0 matches
+DEBUG top-down phase yielded 0 matches
+DEBUG matching took 325.882µs
+DEBUG matching took 296.667µs
+DEBUG matching left to right
+DEBUG top-down phase yielded 0 matches
+DEBUG matching took 82.555µs
+DEBUG matching all three pairs took 729.27µs
+DEBUG constructing the classmapping took 24.315µs
+DEBUG [CM DEBUG] Start Concurrent Additions Unification
+DEBUG [CM DEBUG] Left node identifier:6…16@Left matched with Base
+DEBUG [CM DEBUG] Left node function_definition:70…119@Left matched with Base
+DEBUG [CM DEBUG] Left node module:0…120@Left matched with Base
+DEBUG [CM DEBUG] Left node ::16…17@Left matched with Base
+DEBUG [CM DEBUG] Left node block:22…119@Left matched with Base
+DEBUG [CM DEBUG] Left node class:0…5@Left matched with Base
+DEBUG [CM DEBUG] Left node function_definition:22…65@Left has NO equivalent in Base
+DEBUG [CM DEBUG] Left node class_definition:0…119@Left matched with Base
+DEBUG [CM DEBUG] Right node class:0…5@Right matched with Base
+DEBUG [CM DEBUG] Right node function_definition:22…68@Right has NO equivalent in Base
+DEBUG [CM DEBUG] Right node class_definition:0…122@Right matched with Base
+DEBUG [CM DEBUG] Right node identifier:6…16@Right matched with Base
+DEBUG [CM DEBUG] Right node function_definition:73…122@Right matched with Base
+DEBUG [CM DEBUG] Right node module:0…123@Right matched with Base
+DEBUG [CM DEBUG] Right node ::16…17@Right matched with Base
+DEBUG [CM DEBUG] Right node block:22…122@Right matched with Base
+DEBUG [CM DEBUG] Unmatched nodes in Left: function_definition:22…65@Left
+DEBUG [CM DEBUG] Unmatched nodes in Right: function_definition:22…68@Right
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=def field_name=None text="def"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=identifier field_name=Some("name") text="subtrair"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=parameters field_name=Some("parameters") text="(self, a, b)"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=: field_name=None text=":"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=block field_name=Some("body") text="return a - b"
+DEBUG [AST DEBUG] Extracted Signature (with descendant_for_byte_range): Signature [[subtrair]]
+DEBUG [CM DEBUG] Right node function_definition:22…68@Right has signature Signature [[subtrair]]
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=def field_name=None text="def"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=identifier field_name=Some("name") text="somar"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=parameters field_name=Some("parameters") text="(self, a, b)"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=: field_name=None text=":"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=block field_name=Some("body") text="return a + b"
+DEBUG [AST DEBUG] Extracted Signature (with descendant_for_byte_range): Signature [[somar]]
+DEBUG [CM DEBUG] Processing Left Node with Signature: Signature [[somar]]
+INFO [TIME CM] Unify Concurrent Additions time: 536.688µs
+DEBUG [CM DEBUG] End Concurrent Additions Unification
+DEBUG generating PCS triples
+DEBUG generating PCS triples took 118.613µs
+DEBUG number of triples: 10
+DEBUG number of conflicting triples: 4
+DEBUG eliminating (block:22…71@Base, ⊣, function_definition:22…71@Base, Base) by (block:22…71@Base, ⊣, function_definition:22…65@Left, Left)
+DEBUG cleaning up PCS triples took 118.944µs
+DEBUG ⊥ build_subtree_from_changeset
+DEBUG  module:0…72@Base build_subtree_from_changeset
+DEBUG   class_definition:0…71@Base build_subtree_from_changeset
+DEBUG    class:0…5@Base build_subtree_from_changeset
+DEBUG    identifier:6…16@Base build_subtree_from_changeset
+DEBUG    ::16…17@Base build_subtree_from_changeset
+DEBUG    block:22…71@Base build_subtree_from_changeset
+DEBUG    ⊣ build_conflict
+DEBUG    ⊣ extract_conflict_side
+DEBUG    ⊣ extract_conflict_side
+DEBUG    ⊣ extract_conflict_side
+DEBUG    commutatively_merge_lists
+DEBUG    base_leaders: 
+DEBUG    left_leaders: function_definition:22…65@Left
+DEBUG    right_leaders: function_definition:22…68@Right
+DEBUG    right_removed: 
+DEBUG    merged leaders: function_definition:22…68@Right, function_definition:22…65@Left
+DEBUG    with_separators (final merged children):
+INFO ===========================================================
+INFO [PROFILING SEMISTRUCTURED]
+INFO DIFFY CALLS: 0
+INFO TOTAL TIME BUILDING MERGED TREE: 324.119µs
+INFO TIME SPENT ON DIFFY: 0ns
+INFO DIFFY CALLS ARE 0.00% OF TOTAL TIME
+INFO ===========================================================
+DEBUG Mixed(module:0…72@Base
+  Mixed(class_definition:0…71@Base
+    Exact(class:0…5@Base/BLR/)
+    Exact(identifier:6…16@Base/BLR/)
+    Exact(::16…17@Base/BLR/)
+    Mixed(block:22…71@Base
+      TextuallyMerged(function_definition:22…68@Right, conflict: false)
+      CommutativeChildSeparator(\n\n)
+      TextuallyMerged(function_definition:22…65@Left, conflict: false)
+      TextuallyMerged(function_definition:22…71@Base, conflict: false)
+    )
+  )
+)
+DEBUG deleted and modified: 
+DEBUG really deleted children: 
+DEBUG parents to recompute: 
+DEBUG constructing the merged tree took 519.786µs
+DEBUG signature conflict found in specified by grammar name: block: Signature [[]]
+DEBUG post-processing the merged tree for signature conflicts took 521.671µs
+DEBUG Mixed(module:0…72@Base
+  Mixed(class_definition:0…71@Base
+    Exact(class:0…5@Base/BLR/)
+    Exact(identifier:6…16@Base/BLR/)
+    Exact(::16…17@Base/BLR/)
+    Mixed(block:22…71@Base
+      Conflict()
+    )
+  )
+)
+INFO [TIME] Phase 2 (structure on line-based conflicts) took: 25.309745ms
+INFO [STRUCTURED] called with semistructured = Some(Diff3)
+DEBUG parsing all three files took 22.255607ms
+DEBUG matching base to right
+DEBUG matching base to left
+DEBUG top-down phase yielded 0 matches
+DEBUG top-down phase yielded 0 matches
+DEBUG matching took 248.777µs
+DEBUG matching took 326.553µs
+DEBUG matching left to right
+DEBUG top-down phase yielded 0 matches
+DEBUG matching took 88.707µs
+DEBUG matching all three pairs took 705.095µs
+DEBUG constructing the classmapping took 27.392µs
+DEBUG [CM DEBUG] Start Concurrent Additions Unification
+DEBUG [CM DEBUG] Left node identifier:6…16@Left matched with Base
+DEBUG [CM DEBUG] Left node function_definition:70…119@Left matched with Base
+DEBUG [CM DEBUG] Left node module:0…120@Left matched with Base
+DEBUG [CM DEBUG] Left node ::16…17@Left matched with Base
+DEBUG [CM DEBUG] Left node block:22…119@Left matched with Base
+DEBUG [CM DEBUG] Left node class:0…5@Left matched with Base
+DEBUG [CM DEBUG] Left node function_definition:22…65@Left has NO equivalent in Base
+DEBUG [CM DEBUG] Left node class_definition:0…119@Left matched with Base
+DEBUG [CM DEBUG] Right node class:0…5@Right matched with Base
+DEBUG [CM DEBUG] Right node function_definition:22…68@Right has NO equivalent in Base
+DEBUG [CM DEBUG] Right node class_definition:0…122@Right matched with Base
+DEBUG [CM DEBUG] Right node identifier:6…16@Right matched with Base
+DEBUG [CM DEBUG] Right node function_definition:73…122@Right matched with Base
+DEBUG [CM DEBUG] Right node module:0…123@Right matched with Base
+DEBUG [CM DEBUG] Right node ::16…17@Right matched with Base
+DEBUG [CM DEBUG] Right node block:22…122@Right matched with Base
+DEBUG [CM DEBUG] Unmatched nodes in Left: function_definition:22…65@Left
+DEBUG [CM DEBUG] Unmatched nodes in Right: function_definition:22…68@Right
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=def field_name=None text="def"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=identifier field_name=Some("name") text="subtrair"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=parameters field_name=Some("parameters") text="(self, a, b)"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=: field_name=None text=":"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=block field_name=Some("body") text="return a - b"
+DEBUG [AST DEBUG] Extracted Signature (with descendant_for_byte_range): Signature [[subtrair]]
+DEBUG [CM DEBUG] Right node function_definition:22…68@Right has signature Signature [[subtrair]]
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=def field_name=None text="def"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=identifier field_name=Some("name") text="somar"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=parameters field_name=Some("parameters") text="(self, a, b)"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=: field_name=None text=":"
+DEBUG [SIGNATURE DEBUG] parent_kind=function_definition -> child_kind=block field_name=Some("body") text="return a + b"
+DEBUG [AST DEBUG] Extracted Signature (with descendant_for_byte_range): Signature [[somar]]
+DEBUG [CM DEBUG] Processing Left Node with Signature: Signature [[somar]]
+INFO [TIME CM] Unify Concurrent Additions time: 533.603µs
+DEBUG [CM DEBUG] End Concurrent Additions Unification
+DEBUG generating PCS triples
+DEBUG generating PCS triples took 113.463µs
+DEBUG number of triples: 10
+DEBUG number of conflicting triples: 4
+DEBUG eliminating (block:22…71@Base, ⊣, function_definition:22…71@Base, Base) by (block:22…71@Base, ⊣, function_definition:22…65@Left, Left)
+DEBUG cleaning up PCS triples took 98.525µs
+DEBUG ⊥ build_subtree_from_changeset
+DEBUG  module:0…72@Base build_subtree_from_changeset
+DEBUG   class_definition:0…71@Base build_subtree_from_changeset
+DEBUG    class:0…5@Base build_subtree_from_changeset
+DEBUG    identifier:6…16@Base build_subtree_from_changeset
+DEBUG    ::16…17@Base build_subtree_from_changeset
+DEBUG    block:22…71@Base build_subtree_from_changeset
+DEBUG    ⊣ build_conflict
+DEBUG    ⊣ extract_conflict_side
+DEBUG    ⊣ extract_conflict_side
+DEBUG    ⊣ extract_conflict_side
+DEBUG    commutatively_merge_lists
+DEBUG    base_leaders: 
+DEBUG    left_leaders: function_definition:22…65@Left
+DEBUG    right_leaders: function_definition:22…68@Right
+DEBUG    right_removed: 
+DEBUG    merged leaders: function_definition:22…68@Right, function_definition:22…65@Left
+DEBUG    with_separators (final merged children):
+INFO ===========================================================
+INFO [PROFILING SEMISTRUCTURED]
+INFO DIFFY CALLS: 0
+INFO TOTAL TIME BUILDING MERGED TREE: 282.932µs
+INFO TIME SPENT ON DIFFY: 0ns
+INFO DIFFY CALLS ARE 0.00% OF TOTAL TIME
+INFO ===========================================================
+DEBUG Mixed(module:0…72@Base
+  Mixed(class_definition:0…71@Base
+    Exact(class:0…5@Base/BLR/)
+    Exact(identifier:6…16@Base/BLR/)
+    Exact(::16…17@Base/BLR/)
+    Mixed(block:22…71@Base
+      TextuallyMerged(function_definition:22…68@Right, conflict: false)
+      CommutativeChildSeparator(\n\n)
+      TextuallyMerged(function_definition:22…65@Left, conflict: false)
+      TextuallyMerged(function_definition:22…71@Base, conflict: false)
+    )
+  )
+)
+DEBUG deleted and modified: 
+DEBUG really deleted children: 
+DEBUG parents to recompute: 
+DEBUG constructing the merged tree took 460.565µs
+DEBUG signature conflict found in specified by grammar name: block: Signature [[]]
+DEBUG post-processing the merged tree for signature conflicts took 494.84µs
+DEBUG Mixed(module:0…72@Base
+  Mixed(class_definition:0…71@Base
+    Exact(class:0…5@Base/BLR/)
+    Exact(identifier:6…16@Base/BLR/)
+    Exact(::16…17@Base/BLR/)
+    Mixed(block:22…71@Base
+      Conflict()
+    )
+  )
+)
+INFO [TIME] Phase 3 (structure on entire file) took: 24.915965ms
+DEBUG ~~~ Merge statistics ~~~
+DEBUG line_based: 1 conflict(s), 99 mass, has_additional_issues: false
+DEBUG structured_resolution: 1 conflict(s), 246 mass, has_additional_issues: false
+DEBUG fully_structured: 1 conflict(s), 246 mass, has_additional_issues: false
+INFO [TIME MAIN] Total time merge module: 78.340856ms
+class Matematica:
+<<<<<<< experiment/008q/left.py
+    def somar(self, a, b):
+        return a + b
+||||||| experiment/008q/base.py
+=======
+    def subtrair(self, a, b):
+        return a - b
+>>>>>>> experiment/008q/right.py
+    def multiplicar(self, a, b):
+        return a * b

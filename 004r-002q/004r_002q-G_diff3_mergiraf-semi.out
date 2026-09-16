@@ -1,0 +1,13 @@
+public class Matematica {
+<<<<<<< experiment/004r-002q/left.java
+    public int somar(int left, int b) {
+        return left + b;
+    }
+||||||| experiment/004r-002q/base.java
+=======
+    public int somar(int a, int right) {
+        return a + right;
+    }
+>>>>>>> experiment/004r-002q/right.java
+}
+
